@@ -1,4 +1,6 @@
-# Bila Design Studio Astro site
+# 412.digital
+
+Astro website for 412.digital, an independent creative and digital studio.
 
 ## Commands
 
@@ -8,7 +10,6 @@ npm run dev
 npm run build
 ```
 
-The page is organized into reusable Astro components under `src/components`,
-with the document shell in `src/layouts/BaseLayout.astro` and browser behavior
-in `src/scripts/interactions.js`.
-# 412.Digital-Website
+Reusable site content is centralized in `src/data/site.ts`. Page sections live in
+`src/components`, the document shell is in `src/layouts/BaseLayout.astro`, and
+browser behavior is in `src/scripts/interactions.js`.
