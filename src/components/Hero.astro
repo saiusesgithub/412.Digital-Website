@@ -1,0 +1,39 @@
+      <!-- Hero Section 
+           Changed h-[90vh] to min-h-[90vh] to avoid clipping on resize. 
+           Removed overflow-hidden on mobile if it wasn't strictly needed for the hill, 
+           but keeping it for design integrity (hill overlap) is okay as long as height is flexible.
+      -->
+      <section class="flex flex-col overflow-hidden animate-gradient-bg md:min-h-[110vh] md:pt-40 min-h-[90vh] w-full z-0 pt-32 relative items-center justify-start">
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 adaptive-text mt-12 md:mt-20 pb-40">
+          <h1 class="text-[15vw] md:text-[12vw] leading-[0.85] animate-hero-reveal tracking-tighter opacity-95">Innate <br> <span class="font-light italic opacity-90">Studios</span></h1>
+        </div>
+
+        <!-- Hill Overlay -->
+        <div class="hill-curve flex bg-[#Fdfcf8] w-full h-[35vh] z-20 absolute bottom-0 left-0 shadow-[0_-20px_60px_rgba(0,0,0,0.1)] justify-center items-start pt-12 md:pt-16">
+          <a href="#intro" class="animate-gradient-bg hover:opacity-90 transition-all flex gap-x-2 gap-y-2 items-center group text-sm font-medium text-slate-900 rounded-full pt-3 pr-6 pb-3 pl-6 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" style="box-shadow: rgba(31, 41, 55, 0.25) 0px 18px 35px, rgba(209, 213, 219, 0.3) 0px 0px 0px 1px; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.8)); --border-radius-before: 9999px;">
+  <span class="group-hover:text-black transition-colors text-sm font-medium text-slate-800 tracking-tight">
+    Discover
+  </span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-stone-700 group-hover:text-black transition-colors group-hover:translate-x-0.5 duration-300">
+    <path d="M5 12h14"></path>
+    <path d="m12 5 7 7-7 7"></path>
+  </svg>
+  <style is:inline>
+    [style*="--border-gradient"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: var(--border-radius-before, inherit);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      background: var(--border-gradient);
+      pointer-events: none;
+    }
+  </style>
+</a>
+        </div>
+      </section>
