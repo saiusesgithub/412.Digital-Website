@@ -1,0 +1,22 @@
+---
+import { processSteps } from '../data/site';
+---
+
+<section aria-labelledby="process-heading" class="mt-36 border-t border-slate-300 pt-14 md:mt-44 md:pt-20">
+  <div class="grid grid-cols-1 gap-12 md:grid-cols-12">
+    <div class="md:col-span-4">
+      <p class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-cyan-700">How we work</p>
+      <h2 id="process-heading" class="serif text-4xl italic text-slate-900 md:text-5xl">Simple, clear, collaborative.</h2>
+    </div>
+
+    <ol class="grid gap-10 md:col-span-8 md:grid-cols-3 md:gap-8">
+      {processSteps.map((step) => (
+        <li class="border-t border-slate-300 pt-5">
+          <span class="text-xs font-bold tracking-[0.16em] text-cyan-700">{step.number}</span>
+          <h3 class="mt-5 text-2xl leading-tight text-slate-900">{step.title}</h3>
+          <p class="mt-4 leading-relaxed text-slate-600">{step.description}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

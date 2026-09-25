@@ -11,8 +11,13 @@
           mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
           mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
           document.body.style.overflow = 'hidden';
-          menuIcon.classList.add('opacity-0');
-          closeIcon.classList.remove('opacity-0');
+          menuIcon?.classList.add('opacity-0');
+          closeIcon?.classList.remove('opacity-0');
+          menuBtn?.setAttribute('aria-expanded', 'true');
+          menuBtn?.setAttribute('aria-label', 'Close menu');
+          mobileMenu.setAttribute('aria-hidden', 'false');
+          mobileMenu.removeAttribute('inert');
+          closeBtn?.focus();
         }
       }
 
@@ -21,12 +26,16 @@
           mobileMenu.classList.add('opacity-0', 'pointer-events-none');
           mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
           document.body.style.overflow = '';
-          menuIcon.classList.remove('opacity-0');
-          closeIcon.classList.add('opacity-0');
+          menuIcon?.classList.remove('opacity-0');
+          closeIcon?.classList.add('opacity-0');
+          menuBtn?.setAttribute('aria-expanded', 'false');
+          menuBtn?.setAttribute('aria-label', 'Open menu');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          mobileMenu.setAttribute('inert', '');
         }
       }
 
-      if (menuBtn) menuBtn.addEventListener('click', () => {
+      if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => {
         if (mobileMenu.classList.contains('opacity-0')) {
           openMenu();
         } else {
@@ -36,6 +45,12 @@
 
       if (closeBtn) closeBtn.addEventListener('click', closeMenu);
       mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('opacity-0')) {
+          closeMenu();
+          menuBtn?.focus();
+        }
+      });
 
       // Cookie Management System Logic
       const cookieManager = {
@@ -48,7 +63,7 @@
 
           init: function() {
               // Check if consent is already stored
-              const consent = localStorage.getItem('bila_cookie_consent');
+              const consent = localStorage.getItem('412_cookie_consent');
               if (!consent) {
                   this.showBanner();
               } else {
@@ -75,7 +90,7 @@
 
           openSettings: function() {
               // Pre-fill checkboxes based on current saved state (or default false)
-              const consent = JSON.parse(localStorage.getItem('bila_cookie_consent') || '{"analytics": false, "marketing": false}');
+              const consent = JSON.parse(localStorage.getItem('412_cookie_consent') || '{"analytics": false, "marketing": false}');
               if (this.checkboxes.analytics) this.checkboxes.analytics.checked = consent.analytics;
               if (this.checkboxes.marketing) this.checkboxes.marketing.checked = consent.marketing;
 
@@ -94,14 +109,14 @@
 
           acceptAll: function() {
               const consent = { necessary: true, analytics: true, marketing: true };
-              localStorage.setItem('bila_cookie_consent', JSON.stringify(consent));
+              localStorage.setItem('412_cookie_consent', JSON.stringify(consent));
               this.applyConsent(consent);
               this.hideBanner();
           },
 
           refuseAll: function() {
               const consent = { necessary: true, analytics: false, marketing: false };
-              localStorage.setItem('bila_cookie_consent', JSON.stringify(consent));
+              localStorage.setItem('412_cookie_consent', JSON.stringify(consent));
               this.applyConsent(consent);
               this.hideBanner();
           },
@@ -112,7 +127,7 @@
                   analytics: this.checkboxes.analytics ? this.checkboxes.analytics.checked : false,
                   marketing: this.checkboxes.marketing ? this.checkboxes.marketing.checked : false
               };
-              localStorage.setItem('bila_cookie_consent', JSON.stringify(consent));
+              localStorage.setItem('412_cookie_consent', JSON.stringify(consent));
               this.applyConsent(consent);
               this.closeSettings();
               this.hideBanner();

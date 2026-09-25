@@ -1,23 +1,21 @@
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#Fdfcf8] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
-      <button id="mobile-menu-close" class="absolute top-8 right-8 text-slate-900 p-2" aria-label="Close menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
-        </svg>
-      </button>
-      <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-slate-900">
-        <a href="/services" class="mobile-link hover:text-cyan-600 transition-colors">
-          Services
-        </a>
-        <a href="/portfolio" class="mobile-link hover:text-cyan-600 transition-colors">
-          Portfolio
-        </a>
-        <a href="/agency" class="mobile-link hover:text-cyan-600 transition-colors">
-          Agency
-        </a>
-        <a href="/contact" class="mobile-link mt-4 px-8 py-3 border border-slate-900 rounded-full font-manrope not-italic text-lg hover:bg-slate-900 hover:text-white transition-all">
-          Let's Talk
-        </a>
-      </nav>
-    </div>
+---
+import { navigation } from '../data/site';
+---
+
+<div id="mobile-menu" class="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-[#Fdfcf8] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden" aria-hidden="true" inert>
+  <button id="mobile-menu-close" class="absolute right-6 top-6 rounded-sm p-2 text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-700 sm:right-8 sm:top-8" aria-label="Close menu">
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
+    </svg>
+  </button>
+  <nav aria-label="Mobile navigation" class="flex flex-col items-center gap-7 font-instrument-serif text-3xl italic text-slate-900">
+    {navigation.map((item) => (
+      <a href={item.href} class="mobile-link transition-colors hover:text-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-700">
+        {item.label}
+      </a>
+    ))}
+    <a href="#contact" class="mobile-link mt-3 rounded-full border border-slate-900 px-8 py-3 font-manrope text-lg not-italic transition-all hover:bg-slate-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-700">
+      Start a Project
+    </a>
+  </nav>
+</div>

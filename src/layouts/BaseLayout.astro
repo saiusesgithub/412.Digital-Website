@@ -1,93 +1,107 @@
 ---
 interface Props {
   title?: string;
+  description?: string;
 }
-const { title = 'Bila Design Studio' } = Astro.props;
----
-<html lang="en"><head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title}</title>
-<script is:inline src="https://cdn.tailwindcss.com"></script>
-<script is:inline src="https://unpkg.com/lucide@latest"></script>
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<style is:inline>
-/* Base Fonts */
-body { font-family: 'Manrope', sans-serif; }
-h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
-.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
-.font-manrope { font-family: 'Manrope', sans-serif !important; }
-/* Removed scroll-behavior: smooth to ensure native/fluid mobile scrolling without "stickiness" */
-::-webkit-scrollbar { width: 0px; background: transparent; }
-/* Custom Hill Curve */
-.hill-curve {
-border-top-left-radius: 50% 100px;
-border-top-right-radius: 50% 100px;
-}
-@media (min-width: 768px) {
-.hill-curve {
-border-top-left-radius: 50% 240px;
-border-top-right-radius: 50% 240px;
-}
-}
-/* Hero Animation */
-@keyframes heroReveal {
-from { opacity: 0; transform: translateY(60px); }
-to { opacity: 1; transform: translateY(0); }
-}
-.animate-hero-reveal {
-animation: heroReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-opacity: 0;
-animation-delay: 0.3s;
-}
-/* Gradient Animation */
-@keyframes gradientMove {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
-.animate-gradient-bg {
-background: linear-gradient(-45deg, #ffc3a0, #ffafbd, #c2e9fb, #e2ebf0, #d4fc79, #96e6a1);
-background-size: 400% 400%;
-animation: gradientMove 8s ease infinite;
-}
-/* Adaptive Text (Mix Blend Mode for Header) */
-.adaptive-text {
-color: #ffffff;
-mix-blend-mode: difference;
-}
-/* Blur In Animation */
-@keyframes blurIn {
-from { opacity: 0; filter: blur(10px); transform: scale(0.95); }
-to { opacity: 1; filter: blur(0); transform: scale(1); }
-}
-.animate-blur-in {
-animation: blurIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-</style>
-<link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style is:inline id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><style is:inline id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style is:inline id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style is:inline id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style is:inline id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style is:inline id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style is:inline id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style is:inline id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style is:inline id="all-fonts-style-font-newsreader">.font-newsreader { font-family: 'Newsreader', serif !important; }</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-google-sans-flex">.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-oswald">.font-oswald { font-family: 'Oswald', sans-serif !important; }</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style is:inline id="all-fonts-style-font-dm-sans">.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }</style><style is:inline id="border-gradient-shared-style">
-[style*="--border-gradient"]::before {
-content: "";
-position: absolute;
-inset: 0;
-padding: 1px;
-border-radius: var(--border-radius-before, inherit);
--webkit-mask: linear-gradient(#fff 0 0) content-box,
-linear-gradient(#fff 0 0);
--webkit-mask-composite: xor;
-mask-composite: exclude;
-background: var(--border-gradient);
-pointer-events: none;
-}</style></head>
-  <!-- 
-    Removed overflow-x-hidden from body class and ensured no fixed height is set on body/html 
-    to prevent internal scroll containers. using overflow-x: hidden via style if needed 
-    but Tailwind's overflow-x-hidden is safe usually if height is auto.
-  -->
-  <body class="bg-[#Fdfcf8] text-stone-900 antialiased selection:bg-teal-200 selection:text-teal-900 relative w-full overflow-x-hidden">
+const {
+  title = '412.digital — Independent Creative & Digital Studio',
+  description = '412.digital brings technology, design and creative together to help businesses build, launch and grow.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#07201D" />
+    <title>{title}</title>
+
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" />
+
+    <style is:global>
+      :root { color-scheme: light; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Manrope', sans-serif; }
+      h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
+      .font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+      .font-manrope { font-family: 'Manrope', sans-serif !important; }
+
+      .hill-curve {
+        border-top-left-radius: 50% 100px;
+        border-top-right-radius: 50% 100px;
+      }
+
+      @media (min-width: 768px) {
+        .hill-curve {
+          border-top-left-radius: 50% 240px;
+          border-top-right-radius: 50% 240px;
+        }
+      }
+
+      @keyframes heroReveal {
+        from { opacity: 0; transform: translateY(60px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-hero-reveal {
+        animation: heroReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+        opacity: 0;
+      }
+
+      @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .animate-gradient-bg {
+        background: linear-gradient(-45deg, #ffc3a0, #ffafbd, #c2e9fb, #e2ebf0, #d4fc79, #96e6a1);
+        background-size: 400% 400%;
+        animation: gradientMove 8s ease infinite;
+      }
+
+      .adaptive-text {
+        color: #fff;
+        mix-blend-mode: difference;
+      }
+
+      @keyframes blurIn {
+        from { opacity: 0; filter: blur(10px); transform: scale(0.95); }
+        to { opacity: 1; filter: blur(0); transform: scale(1); }
+      }
+
+      .animate-blur-in { animation: blurIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+      [style*='--border-gradient']::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 1px;
+        border-radius: var(--border-radius-before, inherit);
+        background: var(--border-gradient);
+        pointer-events: none;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="relative w-full overflow-x-hidden bg-[#Fdfcf8] text-stone-900 antialiased selection:bg-teal-200 selection:text-teal-900">
     <slot />
     <script src="../scripts/interactions.js"></script>
   </body>
